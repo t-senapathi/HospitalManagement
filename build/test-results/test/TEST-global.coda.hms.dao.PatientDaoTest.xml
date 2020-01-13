@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="global.coda.hms.dao.PatientDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-13T07:04:47" hostname="DESKTOP-ATQ8LQ9" time="0.751">
+  <properties/>
+  <testcase name="readPatientTestValidId" classname="global.coda.hms.dao.PatientDaoTest" time="0.751"/>
+  <system-out><![CDATA[TRACE 2020-01-13 12:34:47,216 [Test worker] global.coda.hms.dao.PatientDao:readPatient(231): Enter 34
+TRACE 2020-01-13 12:34:47,232 [Test worker] global.coda.hms.dao.PatientDao:getConnection(28): Enter
+TRACE 2020-01-13 12:34:47,881 [Test worker] global.coda.hms.dao.PatientDao:getConnection(37): Exit
+INFO  2020-01-13 12:34:47,925 [Test worker] global.coda.hms.dao.PatientDao:readPatient(259): HM_INFO_002: Read Successfull
+INFO  2020-01-13 12:34:47,927 [Test worker] global.coda.hms.dao.PatientDao:readPatient(260): Patient [pkPatientId=6, patientHeight=44, patientWeight=66, street=frf, city=vff, doorNo=33, bloodGroup=O+ve, username=sena, firstName=senapathi, lastName=t,  age=68, pkUserId=34, fkRoleId=1]
+TRACE 2020-01-13 12:34:47,927 [Test worker] global.coda.hms.dao.PatientDao:closeConnection(47): Enter
+TRACE 2020-01-13 12:34:47,931 [Test worker] global.coda.hms.dao.PatientDao:closeConnection(55): Exit
+TRACE 2020-01-13 12:34:47,931 [Test worker] global.coda.hms.dao.PatientDao:readPatient(276): Exit
+INFO  2020-01-13 12:34:47,931 [Test worker] global.coda.hms.dao.PatientDaoTest:readPatientTestValidId(20): Patient [pkPatientId=6, patientHeight=44, patientWeight=66, street=frf, city=vff, doorNo=33, bloodGroup=O+ve, username=sena, firstName=senapathi, lastName=t,  age=68, pkUserId=34, fkRoleId=1]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

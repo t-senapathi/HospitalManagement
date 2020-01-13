@@ -1,0 +1,135 @@
+2020-01-10 17:07:51,224 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2020-01-10 17:07:51,426 [    202]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IC-193.5662.53, 18 Dec 2019 11:46) 
+2020-01-10 17:07:51,429 [    205]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2020-01-10 17:07:51,429 [    205]   INFO -        #com.intellij.idea.Main - JRE: 11.0.5+10-b520.17 (JetBrains s.r.o) 
+2020-01-10 17:07:51,429 [    205]   INFO -        #com.intellij.idea.Main - JVM: 11.0.5+10-b520.17 (OpenJDK 64-Bit Server VM) 
+2020-01-10 17:07:51,430 [    206]   INFO -        #com.intellij.idea.Main - JVM Args: -Didea.classpath.index.enabled=false -Didea.config.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\config -Didea.is.internal=true -Didea.platform.prefix=Idea -Didea.plugins.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\plugins -Didea.required.plugins.id=org.example.HospitalManagement -Didea.system.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\system -Xms256m -Xmx512m -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -ea 
+2020-01-10 17:07:51,432 [    208]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=windows-1252 
+2020-01-10 17:07:51,701 [    477]   INFO -        #com.intellij.idea.Main - CPU cores: 4; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@422947cc[Running, parallelism = 3, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@1708a5b8 
+2020-01-10 17:07:52,322 [   1098]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 1043 ms 
+2020-01-10 17:07:52,330 [   1106]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2020-01-10 17:08:00,136 [   8912]   INFO - llij.ide.plugins.PluginManager - Plugin "Groovy" misses optional descriptor duplicates-groovy.xml 
+2020-01-10 17:08:00,140 [   8916]   INFO - llij.ide.plugins.PluginManager - Plugin "Groovy" misses optional descriptor duplicates-detection-groovy.xml 
+2020-01-10 17:08:00,467 [   9243]   INFO - llij.ide.plugins.PluginManager - Plugin "Java" misses optional descriptor profiler-java.xml 
+2020-01-10 17:08:00,634 [   9410]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: Android Support (10.3.5), Ant (193.5662.53), Bytecode Viewer (193.5662.53), ChangeReminder (193.5662.53), Configuration Script (193.5662.53), Copyright (193.5662.53), Coverage (193.5662.53), Eclipse Interoperability (193.5662.53), EditorConfig (193.5662.53), Git (193.5662.53), GitHub (193.5662.53), Gradle (193.5662.53), Gradle-Java (193.5662.53), Gradle-Maven (193.5662.53), Groovy (193.5662.53), IDEA CORE (193.5662.53), IntelliLang (193.5662.53), JUnit (193.5662.53), Java (193.5662.53), Java Bytecode Decompiler (193.5662.53), Java IDE Customization (193.5662.53), Java Internationalization (193.5662.53), Java Stream Debugger (193.5662.53), JavaFX (193.5662.53), Kotlin (1.3.61-release-IJ2019.3-1), Machine Learning Code Completion (193.5662.53), Markdown (193.5662.53), Maven (193.5662.53), Mercurial (193.5662.53), Plugin DevKit (193.5662.53), Properties (193.5662.53), Settings Repository (193.5662.53), Shell Script (193.5662.53), Smali Support (193.5662.53), Subversion (193.5662.53), Task Management (193.5662.53), Terminal (193.5662.53), TestNG (193.5662.53), TextMate bundles (193.5662.53), UI Designer (193.5662.53), XPathView + XSLT (193.5662.53), XSLT Debugger (193.5662.53), YAML (193.5662.53) 
+2020-01-10 17:08:00,635 [   9411]   INFO - llij.ide.plugins.PluginManager - Loaded custom plugins: Plugin display name here (1.0-SNAPSHOT) 
+2020-01-10 17:08:01,389 [  10165]   WARN - j.internal.DebugAttachDetector - Unable to start DebugAttachDetector, please add `--add-exports=java.base/jdk.internal.vm=ALL-UNNAMED` to VM options 
+2020-01-10 17:08:01,583 [  10359]   INFO - fs.newvfs.persistent.FSRecords - Marking VFS as corrupted: 'C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\system\caches\names.dat' does not exist 
+2020-01-10 17:08:01,587 [  10363]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63343 
+2020-01-10 17:08:01,602 [  10378]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=492; buffer=10; max=492 
+2020-01-10 17:08:01,845 [  10621]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2020-01-10 17:08:01,850 [  10626]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2020-01-10 17:08:01,962 [  10738]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=13, fontScale=1.0; restored: fontSize=13, fontScale=1.0 
+2020-01-10 17:08:02,054 [  10830]   INFO - .history.utils.LocalHistoryLog - local history version mismatch (was: 0, expected: 6), rebuilding... 
+2020-01-10 17:08:02,054 [  10830]   INFO - .history.utils.LocalHistoryLog - FS has been rebuild, rebuilding local history... 
+2020-01-10 17:08:02,083 [  10859]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: C:\Users\VC\.gradle\caches\modules-2\files-2.1\com.jetbrains.intellij.idea\ideaIC\2019.3.1\52292e4f8a0ccb3ceb08bd81fd57b88923ac8e99\ideaIC-2019.3.1\bin\win\fsnotifier64.exe 
+2020-01-10 17:08:02,228 [  11004]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2020-01-10 17:08:03,680 [  12456]   INFO - pi.util.registry.RegistryValue - Registry value 'java.completion.argument.hints' has changed to 'false' 
+2020-01-10 17:08:03,680 [  12456]   INFO - pi.util.registry.RegistryValue - Registry value 'java.completion.argument.hints.internal' has changed to 'false' 
+2020-01-10 17:08:04,754 [  13530]   INFO - ij.psi.stubs.StubUpdatingIndex - Following new file types will be indexed:CLASS,HTML,KJSM,Markdown,KNM,DGM,Properties,Kotlin,kotlin_builtins,XML,Groovy,JAVA 
+2020-01-10 17:08:06,495 [  15271]   INFO - il.indexing.FileBasedIndexImpl - Indices to be built:FrameworkDetectionIndex,TodoIndex,IdIndex,FilenameIndex,filetypes,Stubs,Trigram.Index,fileIncludes,DomFileIndex,RelaxSymbolIndex,XmlTagNames,XmlNamespaces,html5.custom.attributes.index,SchemaTypeInheritance,json.file.root.values,ImageFileInfoIndex,bytecodeAnalysis,java.auto.module.name,java.source.module.name,java.null.method.argument,java.simple.property,java.fun.expression,java.binary.plus.expression,RefQueueIndex,xmlProperties,ant-imports,XsltSymbolIndex,GroovyDslFileIndex,groovy.trait.fields,groovy.trait.methods,FormClassIndex,IdeaPluginRegistrationIndex,PluginIdModuleIndex,PluginIdDependenciesIndex,devkit.ExtensionPointIndex,editorconfig.index.name,org.jetbrains.kotlin.idea.versions.KotlinJvmMetadataVersionIndex,org.jetbrains.kotlin.idea.versions.KotlinJsMetadataVersionIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinClassFileIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinJavaScriptMetaFileIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFileIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinMetadataFilePackageIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinModuleMappingIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinPackageSourcesMemberNamesIndex,org.jetbrains.kotlin.idea.vfilefinder.KotlinJvmModuleAnnotationsIndex,org.jetbrains.kotlin.ide.konan.index.KotlinNativeMetaFileIndex,DataBindingXmlIndex,JavaFxControllerClassIndex,javafx.id.name,javafx.custom.component,yaml.keys.name 
+2020-01-10 17:08:06,515 [  15291]   INFO - pl$FileIndexDataInitialization - Initialization done: 4419 
+2020-01-10 17:08:07,313 [  16089]   INFO - tellij.psi.stubs.StubIndexImpl - Following stub indices will be built:dom.namespaceKey,dom.elementClass,java.annotations,java.class.extlist,java.field.name,java.method.name,jvm.static.member.name,jvm.static.member.type,java.anonymous.baseref,java.method.parameter.types,java.class.shortname,java.class.fqn,java.module.name,properties.index,gr.class.fqn,gr.script.fqn,gr.field.name,gr.method.name,gr.annot.method.name,gr.annot.members,gr.script.class,gr.class.super,gr.anonymous.class,markdown.header,org.jetbrains.kotlin.idea.stubindex.KotlinExactPackagesIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelClassByPackageIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelFunctionByPackageIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelPropertyByPackageIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelTypeAliasByPackageIndex,org.jetbrains.kotlin.idea.stubindex.KotlinClassShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinFullClassNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinPropertyShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinFunctionShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTypeAliasShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinSuperClassIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelFunctionFqnNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelPropertyFqnNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelTypeAliasFqNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTopLevelExtensionsByReceiverTypeIndex,org.jetbrains.kotlin.idea.stubindex.KotlinAnnotationsIndex,org.jetbrains.kotlin.idea.stubindex.KotlinProbablyNothingFunctionShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinProbablyNothingPropertyShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinProbablyContractedFunctionShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeFqNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinFilePartClassIndex,org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeClassByPackageIndex,org.jetbrains.kotlin.idea.stubindex.KotlinFileFacadeShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinMultifileClassPartIndex,org.jetbrains.kotlin.idea.stubindex.KotlinScriptFqnIndex,org.jetbrains.kotlin.idea.stubindex.KotlinTypeAliasByExpansionShortNameIndex,org.jetbrains.kotlin.idea.stubindex.KotlinOverridableInternalMembersShortNameIndex 
+2020-01-10 17:08:07,313 [  16089]   INFO - exImpl$StubIndexInitialization - Initialization done: 798 
+2020-01-10 17:08:08,039 [  16815]   INFO - rationStore.ComponentStoreImpl - Saving appDaemonCodeAnalyzerSettings took 18 ms, DebuggerSettings took 15 ms 
+2020-01-10 17:08:09,800 [  18576]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2020-01-10 17:08:09,807 [  18583]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2020-01-10 17:08:09,814 [  18590]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2020-01-10 17:08:09,815 [  18591]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2020-01-10 17:08:10,128 [  18904]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2020-01-10 17:08:10,128 [  18904]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2020-01-10 17:08:10,142 [  18918]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2020-01-10 17:08:10,145 [  18921]   INFO - Types.impl.FileTypeManagerImpl - 0 auto-detected files. Detection took 0 ms 
+2020-01-10 17:08:10,146 [  18922]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2020-01-10 17:08:10,150 [  18926]   INFO - plication.impl.ApplicationImpl - Write action Statistics:
+Event number:     1
+Total time spent: 595ms
+Average duration: 595ms
+Median  duration: 0ms
+Max     duration: 595ms (it was 'write action (class com.intellij.openapi.projectRoots.impl.DefaultJdkConfigurator$$Lambda$486/0x00000001005e4440)') 
+2020-01-10 17:08:10,150 [  18926]   INFO - plication.impl.ApplicationImpl - AnAction.update() Statistics:
+Event number:     0
+Total time spent: 0ms
+Average duration: 0ms
+Median  duration: 0ms
+Max     duration: 0ms (it was 'null') 
+2020-01-10 17:08:10,150 [  18926]   INFO - plication.impl.ApplicationImpl - Global instance threads created counter = 9; ProcessIOExecutorService threads: 3 
+2020-01-10 17:08:10,152 [  18928]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2020-01-10 17:08:10,158 [  18934]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2020-01-11 10:11:26,971 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2020-01-11 10:11:27,910 [    939]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IC-193.5662.53, 18 Dec 2019 11:46) 
+2020-01-11 10:11:27,922 [    951]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2020-01-11 10:11:27,922 [    951]   INFO -        #com.intellij.idea.Main - JRE: 11.0.5+10-b520.17 (JetBrains s.r.o) 
+2020-01-11 10:11:27,923 [    952]   INFO -        #com.intellij.idea.Main - JVM: 11.0.5+10-b520.17 (OpenJDK 64-Bit Server VM) 
+2020-01-11 10:11:27,924 [    953]   INFO -        #com.intellij.idea.Main - JVM Args: -Didea.classpath.index.enabled=false -Didea.config.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\config -Didea.is.internal=true -Didea.platform.prefix=Idea -Didea.plugins.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\plugins -Didea.required.plugins.id=org.example.HospitalManagement -Didea.system.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\system -javaagent:C:\Users\VC\.IntelliJIdea2019.3\system\testAgent\intellij-coverage-agent-1.0.508.jar=C:\Users\VC\AppData\Local\Temp\coverageargs -Xms256m -Xmx512m -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -ea 
+2020-01-11 10:11:27,924 [    953]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=windows-1252 
+2020-01-11 10:11:28,464 [   1493]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 1417 ms 
+2020-01-11 10:11:28,942 [   1971]   INFO - ntellij.idea.ApplicationLoader - CPU cores: 4; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@1e58b85b[Running, parallelism = 3, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@7343ed6d 
+2020-01-11 10:11:29,155 [   2184]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2020-01-11 10:11:30,099 [   3128]   INFO - llij.ide.plugins.PluginManager - Plugin "Groovy" misses optional descriptor duplicates-groovy.xml 
+2020-01-11 10:11:30,102 [   3131]   INFO - llij.ide.plugins.PluginManager - Plugin "Groovy" misses optional descriptor duplicates-detection-groovy.xml 
+2020-01-11 10:11:30,728 [   3757]   INFO - llij.ide.plugins.PluginManager - Plugin "Java" misses optional descriptor profiler-java.xml 
+2020-01-11 10:11:30,968 [   3997]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: Android Support (10.3.5), Ant (193.5662.53), Bytecode Viewer (193.5662.53), ChangeReminder (193.5662.53), Configuration Script (193.5662.53), Copyright (193.5662.53), Coverage (193.5662.53), Eclipse Interoperability (193.5662.53), EditorConfig (193.5662.53), Git (193.5662.53), GitHub (193.5662.53), Gradle (193.5662.53), Gradle-Java (193.5662.53), Gradle-Maven (193.5662.53), Groovy (193.5662.53), IDEA CORE (193.5662.53), IntelliLang (193.5662.53), JUnit (193.5662.53), Java (193.5662.53), Java Bytecode Decompiler (193.5662.53), Java IDE Customization (193.5662.53), Java Internationalization (193.5662.53), Java Stream Debugger (193.5662.53), JavaFX (193.5662.53), Kotlin (1.3.61-release-IJ2019.3-1), Machine Learning Code Completion (193.5662.53), Markdown (193.5662.53), Maven (193.5662.53), Mercurial (193.5662.53), Plugin DevKit (193.5662.53), Properties (193.5662.53), Settings Repository (193.5662.53), Shell Script (193.5662.53), Smali Support (193.5662.53), Subversion (193.5662.53), Task Management (193.5662.53), Terminal (193.5662.53), TestNG (193.5662.53), TextMate bundles (193.5662.53), UI Designer (193.5662.53), XPathView + XSLT (193.5662.53), XSLT Debugger (193.5662.53), YAML (193.5662.53) 
+2020-01-11 10:11:30,969 [   3998]   INFO - llij.ide.plugins.PluginManager - Loaded custom plugins: Plugin display name here (1.0-SNAPSHOT) 
+2020-01-11 10:11:33,481 [   6510]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=492; buffer=10; max=492 
+2020-01-11 10:11:33,785 [   6814]   WARN - j.internal.DebugAttachDetector - Unable to start DebugAttachDetector, please add `--add-exports=java.base/jdk.internal.vm=ALL-UNNAMED` to VM options 
+2020-01-11 10:11:33,932 [   6961]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63343 
+2020-01-11 10:11:34,089 [   7118]   INFO - pi.util.registry.RegistryState - Registry values changed by user: java.completion.argument.hints.internal = false 
+2020-01-11 10:11:34,111 [   7140]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2020-01-11 10:11:34,119 [   7148]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2020-01-11 10:11:34,132 [   7161]   INFO - pi.util.registry.RegistryState - Experimental features enabled for user: wsl.p9.support, wsl.p9.show.roots.in.file.chooser, inline.browse.button, linux.native.menu, recent.and.edited.files.together, show.create.new.element.in.popup, copy.reference.popup, new.large.text.file.viewer, property.value.inplace.editing 
+2020-01-11 10:11:34,153 [   7182]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: C:\Users\VC\.gradle\caches\modules-2\files-2.1\com.jetbrains.intellij.idea\ideaIC\2019.3.1\52292e4f8a0ccb3ceb08bd81fd57b88923ac8e99\ideaIC-2019.3.1\bin\win\fsnotifier64.exe 
+2020-01-11 10:11:34,436 [   7465]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=13, fontScale=1.0; restored: fontSize=13, fontScale=1.0 
+2020-01-11 10:11:34,443 [   7472]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2020-01-11 12:58:53,297 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2020-01-11 12:58:53,335 [     38]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IC-193.5662.53, 18 Dec 2019 11:46) 
+2020-01-11 12:58:53,343 [     46]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2020-01-11 12:58:53,343 [     46]   INFO -        #com.intellij.idea.Main - JRE: 11.0.5+10-b520.17 (JetBrains s.r.o) 
+2020-01-11 12:58:53,343 [     46]   INFO -        #com.intellij.idea.Main - JVM: 11.0.5+10-b520.17 (OpenJDK 64-Bit Server VM) 
+2020-01-11 12:58:53,345 [     48]   INFO -        #com.intellij.idea.Main - JVM Args: -Didea.classpath.index.enabled=false -Didea.config.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\config -Didea.is.internal=true -Didea.platform.prefix=Idea -Didea.plugins.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\plugins -Didea.required.plugins.id=org.example.HospitalManagement -Didea.system.path=C:\Users\VC\IdeaProjects\HospitalManagement\build\idea-sandbox\system -Xms256m -Xmx512m -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -ea 
+2020-01-11 12:58:53,345 [     48]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=windows-1252 
+2020-01-11 12:58:53,453 [    156]   INFO - ntellij.idea.ApplicationLoader - CPU cores: 4; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@40b3fd2c[Running, parallelism = 3, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@3341b764 
+2020-01-11 12:58:54,513 [   1216]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 1202 ms 
+2020-01-11 12:58:54,544 [   1247]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2020-01-11 12:58:55,832 [   2535]   INFO - llij.ide.plugins.PluginManager - Plugin "Groovy" misses optional descriptor duplicates-groovy.xml 
+2020-01-11 12:58:55,843 [   2546]   INFO - llij.ide.plugins.PluginManager - Plugin "Groovy" misses optional descriptor duplicates-detection-groovy.xml 
+2020-01-11 12:58:56,559 [   3262]   INFO - llij.ide.plugins.PluginManager - Plugin "Java" misses optional descriptor profiler-java.xml 
+2020-01-11 12:58:56,870 [   3573]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: Android Support (10.3.5), Ant (193.5662.53), Bytecode Viewer (193.5662.53), ChangeReminder (193.5662.53), Configuration Script (193.5662.53), Copyright (193.5662.53), Coverage (193.5662.53), Eclipse Interoperability (193.5662.53), EditorConfig (193.5662.53), Git (193.5662.53), GitHub (193.5662.53), Gradle (193.5662.53), Gradle-Java (193.5662.53), Gradle-Maven (193.5662.53), Groovy (193.5662.53), IDEA CORE (193.5662.53), IntelliLang (193.5662.53), JUnit (193.5662.53), Java (193.5662.53), Java Bytecode Decompiler (193.5662.53), Java IDE Customization (193.5662.53), Java Internationalization (193.5662.53), Java Stream Debugger (193.5662.53), JavaFX (193.5662.53), Kotlin (1.3.61-release-IJ2019.3-1), Machine Learning Code Completion (193.5662.53), Markdown (193.5662.53), Maven (193.5662.53), Mercurial (193.5662.53), Plugin DevKit (193.5662.53), Properties (193.5662.53), Settings Repository (193.5662.53), Shell Script (193.5662.53), Smali Support (193.5662.53), Subversion (193.5662.53), Task Management (193.5662.53), Terminal (193.5662.53), TestNG (193.5662.53), TextMate bundles (193.5662.53), UI Designer (193.5662.53), XPathView + XSLT (193.5662.53), XSLT Debugger (193.5662.53), YAML (193.5662.53) 
+2020-01-11 12:58:56,871 [   3574]   INFO - llij.ide.plugins.PluginManager - Loaded custom plugins: Plugin display name here (1.0-SNAPSHOT) 
+2020-01-11 12:58:58,892 [   5595]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=492; buffer=10; max=492 
+2020-01-11 12:58:59,331 [   6034]   INFO - pi.util.registry.RegistryState - Registry values changed by user: java.completion.argument.hints.internal = false 
+2020-01-11 12:58:59,385 [   6088]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: C:\Users\VC\.gradle\caches\modules-2\files-2.1\com.jetbrains.intellij.idea\ideaIC\2019.3.1\52292e4f8a0ccb3ceb08bd81fd57b88923ac8e99\ideaIC-2019.3.1\bin\win\fsnotifier64.exe 
+2020-01-11 12:58:59,440 [   6143]   INFO - pi.util.registry.RegistryState - Experimental features enabled for user: wsl.p9.support, wsl.p9.show.roots.in.file.chooser, inline.browse.button, linux.native.menu, recent.and.edited.files.together, show.create.new.element.in.popup, copy.reference.popup, new.large.text.file.viewer, property.value.inplace.editing 
+2020-01-11 12:58:59,578 [   6281]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2020-01-11 12:58:59,620 [   6323]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2020-01-11 12:58:59,855 [   6558]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=13, fontScale=1.0; restored: fontSize=13, fontScale=1.0 
+2020-01-11 12:59:00,304 [   7007]   WARN - j.internal.DebugAttachDetector - Unable to start DebugAttachDetector, please add `--add-exports=java.base/jdk.internal.vm=ALL-UNNAMED` to VM options 
+2020-01-11 12:59:00,479 [   7182]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63343 
+2020-01-11 12:59:00,726 [   7429]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2020-01-11 12:59:04,588 [  11291]   INFO - pl$FileIndexDataInitialization - Initialization done: 4857 
+2020-01-11 12:59:04,999 [  11702]   INFO - exImpl$StubIndexInitialization - Initialization done: 410 
+2020-01-11 14:30:34,857 [5501560]   INFO - rationStore.ComponentStoreImpl - Saving appDaemonCodeAnalyzerSettings took 44 ms, FileTypeManager took 16 ms, HttpConfigurable took 18 ms 
+2020-01-11 14:30:42,568 [5509271]   INFO - Types.impl.FileTypeManagerImpl - 0 auto-detected files. Detection took 0 ms 
+2020-01-11 14:30:42,905 [5509608]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2020-01-11 14:30:42,906 [5509609]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2020-01-11 14:30:42,909 [5509612]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2020-01-11 14:30:42,918 [5509621]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2020-01-11 14:30:42,918 [5509621]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2020-01-11 14:30:42,945 [5509648]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2020-01-11 14:30:42,945 [5509648]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2020-01-11 14:30:42,946 [5509649]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2020-01-11 14:30:42,949 [5509652]   INFO - plication.impl.ApplicationImpl - Write action Statistics:
+Event number:     1
+Total time spent: 122ms
+Average duration: 122ms
+Median  duration: 0ms
+Max     duration: 122ms (it was 'write action (class com.intellij.openapi.command.WriteCommandAction$$Lambda$778/0x0000000100d69840)') 
+2020-01-11 14:30:42,950 [5509653]   INFO - plication.impl.ApplicationImpl - AnAction.update() Statistics:
+Event number:     0
+Total time spent: 0ms
+Average duration: 0ms
+Median  duration: 0ms
+Max     duration: 0ms (it was 'null') 
+2020-01-11 14:30:42,950 [5509653]   INFO - plication.impl.ApplicationImpl - Global instance threads created counter = 44; ProcessIOExecutorService threads: 3 
+2020-01-11 14:30:42,952 [5509655]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2020-01-11 14:30:42,955 [5509658]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 

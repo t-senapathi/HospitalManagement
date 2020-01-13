@@ -39,7 +39,7 @@ public class DoctorApi {
         LOGGER.traceEntry(doctor.toString());
         DoctorDelegate doctorDelegate = new DoctorDelegate();
         doctor = doctorDelegate.createDoctorDelegate(doctor);
-        LOGGER.traceExit();
+        LOGGER.traceExit(doctor);
         return new ResponseEntity<>().setData(doctor).setStatusCode(HttpStatusConstant.OK);
 
     }
@@ -60,7 +60,7 @@ public class DoctorApi {
         LOGGER.traceEntry(String.valueOf(id));
         DoctorDelegate doctorDelegate = new DoctorDelegate();
         Doctor doctor = doctorDelegate.readDoctorDelegate(id);
-        LOGGER.traceExit();
+        LOGGER.traceExit(doctor);
         return new ResponseEntity<>().setData(doctor).setStatusCode(HttpStatusConstant.OK);
     }
 
@@ -159,7 +159,7 @@ public class DoctorApi {
         DoctorPatientMapper doctorPatientMapper;
         DoctorDelegate doctorDelegate = new DoctorDelegate();
         doctorPatientMapper = doctorDelegate.getPatientsDelegate(doctorId);
-        LOGGER.traceExit();
+        LOGGER.traceExit(doctorPatientMapper);
         return new ResponseEntity<>().setData(doctorPatientMapper).setStatusCode(HttpStatusConstant.OK);
     }
 

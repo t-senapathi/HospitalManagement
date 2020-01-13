@@ -3,6 +3,7 @@ package global.coda.hms.dao;
 import java.sql.*;
 import java.util.*;
 
+import global.coda.hms.constant.PatientConstants;
 import global.coda.hms.exception.*;
 import global.coda.hms.model.Doctor;
 import global.coda.hms.model.DoctorPatientAssign;
@@ -70,7 +71,7 @@ public class DoctorDao {
                     connection.commit();
                     doctor.setPkUserId(userId);
                     LOGGER.info(INFO_CONSTANT.getString(CREATE_SUCCESS));
-                    LOGGER.info(doctor);
+                    LOGGER.traceExit(doctor);
                     return doctor;
                 } else {
                     throw new SQLException();
@@ -93,7 +94,6 @@ public class DoctorDao {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
-            LOGGER.traceExit();
         }
     }
 
@@ -131,7 +131,7 @@ public class DoctorDao {
                 doctor.setSpecialisation(resultSet.getString(SPECIALISATION));
                 doctor.setExperience(resultSet.getInt(EXPERIENCE));
                 LOGGER.info(INFO_CONSTANT.getString(READ_SUCCESS));
-                LOGGER.info(doctor);
+                LOGGER.traceExit(doctor);
                 return doctor;
             } else {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
@@ -146,7 +146,6 @@ public class DoctorDao {
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -163,7 +162,7 @@ public class DoctorDao {
         Connection connection = null;
         ResultSet resultSet;
         PreparedStatement userStatement;
-        List<Doctor> doctorlist = new ArrayList<Doctor>();
+        List<Doctor> doctorlist = new ArrayList<>();
         Doctor doctor;
         try {
             dbconnection = new DbConnection();
@@ -189,6 +188,7 @@ public class DoctorDao {
             }
             if (userCount != 0) {
                 LOGGER.info(INFO_CONSTANT.getString(READALL_SUCCESS));
+                LOGGER.traceExit(doctorlist);
                 return doctorlist;
             } else {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_004));
@@ -200,7 +200,6 @@ public class DoctorDao {
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -242,6 +241,7 @@ public class DoctorDao {
                 if (rowsAffectedDoctor == 1) {
                     connection.commit();
                     LOGGER.info(INFO_CONSTANT.getString(UPDATE_SUCCESS));
+                    LOGGER.traceExit("true");
                     return true;
                 } else {
                     throw new UserNotFoundException();
@@ -260,7 +260,6 @@ public class DoctorDao {
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -295,6 +294,7 @@ public class DoctorDao {
                 if (rowsAffectedDoctor == 1) {
                     connection.commit();
                     LOGGER.info(INFO_CONSTANT.getString(DELETE_SUCCESS));
+                    LOGGER.traceExit("true");
                     return true;
                 } else {
                     throw new UserNotFoundException();
@@ -315,7 +315,6 @@ public class DoctorDao {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
-            LOGGER.traceExit();
         }
     }
 
@@ -350,6 +349,7 @@ public class DoctorDao {
             if (rowsAffected == 1) {
                 connection.commit();
                 LOGGER.info(INFO_CONSTANT.getString(UPDATE_SUCCESS));
+                LOGGER.traceExit("true");
                 return true;
             } else {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
@@ -365,7 +365,6 @@ public class DoctorDao {
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -411,6 +410,7 @@ public class DoctorDao {
                 patients.add(patient);
             }
             doctorPatientMapper.setPatients(patients);
+            LOGGER.traceExit(doctorPatientMapper);
             return doctorPatientMapper;
         } catch (NoRecordFoundException e) {
             throw new BusinessException(e);
@@ -419,7 +419,6 @@ public class DoctorDao {
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -448,14 +447,14 @@ public class DoctorDao {
             while (resultSet.next()) {
                 doctor = new Doctor();
                 patient = new Patient();
-                doctor.setPkUserId(resultSet.getInt("fk_doctor_id"));
-                patient.setPkUserId(resultSet.getInt("fk_patient_id"));
+                doctor.setPkUserId(resultSet.getInt(FK_DOCTOR_ID));
+                patient.setPkUserId(resultSet.getInt(FK_PATIENT_ID));
                 patient.setUsername(resultSet.getString(USERNAME));
                 patient.setFkRoleId(resultSet.getInt(ROLE));
                 patient.setAge(resultSet.getInt(AGE));
-                patient.setStreet(resultSet.getString("street"));
-                patient.setCity(resultSet.getString("city"));
-                patient.setDoorNo(resultSet.getString("door_no"));
+                patient.setStreet(resultSet.getString(PatientConstants.STREET));
+                patient.setCity(resultSet.getString(PatientConstants.CITY));
+                patient.setDoorNo(resultSet.getString(PatientConstants.DOOR_NO));
                 if (!doctorMap.containsKey(doctor.getPkUserId())) {
                     patientList = new ArrayList<>();
                     patientList.add(patient);
@@ -476,7 +475,6 @@ public class DoctorDao {
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }

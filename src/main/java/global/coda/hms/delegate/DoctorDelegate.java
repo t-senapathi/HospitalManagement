@@ -1,7 +1,6 @@
 package global.coda.hms.delegate;
 
-import global.coda.hms.api.DoctorApi;
-import global.coda.hms.dao.DoctorDao;
+
 import global.coda.hms.helper.DoctorHelper;
 import global.coda.hms.exception.BusinessException;
 import global.coda.hms.exception.SystemException;
@@ -11,7 +10,6 @@ import global.coda.hms.model.DoctorPatientMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +19,7 @@ import java.util.Map;
  */
 public class DoctorDelegate {
     private static final Logger LOGGER = LogManager.getLogger(DoctorDelegate.class);
+
     /**
      * Create doctor delegate doctor.
      *
@@ -83,8 +82,10 @@ public class DoctorDelegate {
      * @throws BusinessException the business exception
      */
     public boolean updateDoctorDelegate(Doctor doctor) throws SystemException, BusinessException {
+        LOGGER.traceEntry(doctor.toString());
         DoctorHelper doctorHelper = new DoctorHelper();
         doctorHelper.updateDoctorHelper(doctor);
+        LOGGER.traceExit("true");
         return true;
     }
 
@@ -97,8 +98,10 @@ public class DoctorDelegate {
      * @throws BusinessException the business exception
      */
     public boolean deleteDoctorDelegate(int id) throws SystemException, BusinessException {
+        LOGGER.traceEntry(String.valueOf(id));
         DoctorHelper doctorHelper = new DoctorHelper();
         doctorHelper.deleteDoctorHelper(id);
+        LOGGER.traceExit("true");
         return true;
     }
 
@@ -111,8 +114,10 @@ public class DoctorDelegate {
      * @throws BusinessException the business exception
      */
     public boolean PateintDoctorAssignDelegate(DoctorPatientAssign newData) throws SystemException, BusinessException {
+        LOGGER.traceEntry(newData.toString());
         DoctorHelper doctorHelper = new DoctorHelper();
         doctorHelper.PateintDoctorAssignHelper(newData);
+        LOGGER.traceExit("true");
         return true;
     }
 
@@ -125,7 +130,9 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      */
     public DoctorPatientMapper getPatientsDelegate(int doctorId) throws BusinessException, SystemException {
+        LOGGER.traceEntry(String.valueOf(doctorId));
         DoctorHelper doctorHelper = new DoctorHelper();
+        LOGGER.traceExit();
         return doctorHelper.getPatientsHelper(doctorId);
     }
 
@@ -137,13 +144,15 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      */
     public List<Doctor> getAllPatientsDelegate() throws BusinessException, SystemException {
+        LOGGER.traceEntry();
         DoctorHelper doctorHelper = new DoctorHelper();
         List<Doctor> doctorList = new ArrayList<>();
         Map<Integer, Doctor> doctorMap;
         doctorMap = doctorHelper.getAllPatientsHelper();
-        for (Map.Entry<Integer, Doctor> entry : doctorMap.entrySet()){
+        for (Map.Entry<Integer, Doctor> entry : doctorMap.entrySet()) {
             doctorList.add(entry.getValue());
         }
+        LOGGER.traceExit(doctorList);
         return doctorList;
     }
 

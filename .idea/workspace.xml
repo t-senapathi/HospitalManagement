@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05d95256-ade9-4d01-a954-1cac06d17cbf" name="Default Changelist" comment="" />
+    <list default="true" id="05d95256-ade9-4d01-a954-1cac06d17cbf" name="Default Changelist" comment="Loggers at entry and exit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/api/DoctorApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/api/DoctorApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/api/PatientApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/api/PatientApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/constant/DoctorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/constant/DoctorConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/DoctorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/DoctorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/PatientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/PatientDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/delegate/DoctorDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/delegate/DoctorDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/delegate/PatientDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/delegate/PatientDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/DoctorHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/DoctorHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/PatientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/PatientHelper.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -294,11 +305,16 @@
       <workItem from="1578813228415" duration="354000" />
       <workItem from="1578813612300" duration="34265000" />
       <workItem from="1578887031165" duration="17415000" />
+      <workItem from="1578935812037" duration="2414000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Loggers at entry and exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loggers at entry and exit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="0" key="#PatientDaoTest" timestamp="1578744910924">
@@ -337,6 +353,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="381" y="170" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1578672581197" />
+    <state x="199" y="0" key="CommitChangelistDialog2" timestamp="1578938195977">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="199" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578938195977" />
     <state x="421" y="43" key="FileChooserDialogImpl" timestamp="1578839594956">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -385,14 +405,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1578813583087" />
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1578817385320">
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578935865687">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1578817385320" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578935865687" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1578935813095">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1578935813095" />
     <state x="412" y="18" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578733293698">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="412" y="18" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.680@0.0.1280.680" timestamp="1578733293698" />
+    <state x="428" y="242" key="git4idea.ui.GitStashDialog" timestamp="1578935836085">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="428" y="242" key="git4idea.ui.GitStashDialog/0.0.1280.680@0.0.1280.680" timestamp="1578935836085" />
     <state x="91" y="0" key="new project wizard" timestamp="1578839586569">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

@@ -41,6 +41,8 @@ public class DoctorConstants {
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
     public static final String USER_ID = "pk_user_id";
+    public static final String FK_DOCTOR_ID = "fk_doctor_id";
+    public static final String FK_PATIENT_ID = "fk_patient_id";
     public static final String ROLE = "fk_role_id";
     public static final String FIRST_NAME = "first_name";
     public static final String LAST_NAME = "last_name";

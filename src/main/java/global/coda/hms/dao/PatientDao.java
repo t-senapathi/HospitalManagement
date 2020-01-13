@@ -80,7 +80,7 @@ public class PatientDao {
                     connection.commit();
                     patient.setPkUserId(userId);
                     LOGGER.info(INFO_CONSTANT.getString(CREATE_SUCCESS));
-                    LOGGER.info(patient);
+                    LOGGER.traceExit(patient);
                     return patient;
                 } else {
                     throw new SQLException();
@@ -103,7 +103,6 @@ public class PatientDao {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
-            LOGGER.traceExit();
         }
     }
 
@@ -136,6 +135,7 @@ public class PatientDao {
                 if (rowsAffectedPatient == 1) {
                     connection.commit();
                     LOGGER.info(INFO_CONSTANT.getString(DELETE_SUCCESS));
+                    LOGGER.traceExit("true");
                     return true;
                 } else {
                     throw new UserNotFoundException();
@@ -156,7 +156,6 @@ public class PatientDao {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
-            LOGGER.traceExit();
         }
     }
 
@@ -203,6 +202,7 @@ public class PatientDao {
             }
             if (userCount != 0) {
                 LOGGER.info(INFO_CONSTANT.getString(READALL_SUCCESS));
+                LOGGER.traceExit(patientlist);
                 return patientlist;
             } else {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_004));
@@ -214,7 +214,6 @@ public class PatientDao {
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -257,7 +256,7 @@ public class PatientDao {
                 patient.setCity(resultSet.getString(CITY));
                 patient.setBloodGroup(resultSet.getString(BLOOD_GROUP));
                 LOGGER.info(INFO_CONSTANT.getString(READ_SUCCESS));
-                LOGGER.info(patient);
+                LOGGER.traceExit(patient);
                 return patient;
             } else {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
@@ -273,7 +272,6 @@ public class PatientDao {
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
-                LOGGER.traceExit();
             }
         }
     }
@@ -314,6 +312,7 @@ public class PatientDao {
                 if (rowsAffectedPatient == 1) {
                     connection.commit();
                     LOGGER.info(INFO_CONSTANT.getString(UPDATE_SUCCESS));
+                    LOGGER.traceExit("true");
                     return true;
                 } else {
                     throw new UserNotFoundException();
@@ -332,7 +331,7 @@ public class PatientDao {
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
-                LOGGER.traceExit();
+
             }
         }
     }

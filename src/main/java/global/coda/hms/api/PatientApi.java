@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
  */
 @Path("/patient")
 public class PatientApi {
-    private static final Logger LOGGER = LogManager.getLogger(DoctorApi.class);
+    private static final Logger LOGGER = LogManager.getLogger(PatientApi.class);
 
     /**
      * Create patient api response entity.
@@ -38,6 +38,7 @@ public class PatientApi {
         LOGGER.traceEntry(patient.toString());
         PatientDelegate patientDelegate = new PatientDelegate();
         patient = patientDelegate.createPatientDelegate(patient);
+        LOGGER.traceExit(patient);
         return new ResponseEntity<>().setData(patient).setStatusCode(HttpStatusConstant.OK);
 
     }
@@ -58,7 +59,7 @@ public class PatientApi {
         LOGGER.traceEntry(String.valueOf(id));
         PatientDelegate patientDelegate = new PatientDelegate();
         Patient patient = patientDelegate.readPatientDelegate(id);
-        LOGGER.traceExit();
+        LOGGER.traceExit(patient);
         return new ResponseEntity<>().setData(patient).setStatusCode(HttpStatusConstant.OK);
     }
 

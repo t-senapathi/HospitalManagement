@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05d95256-ade9-4d01-a954-1cac06d17cbf" name="Default Changelist" comment="Loggers at entry and exit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/exceptionmapper/BusinessExceptionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/exceptionmapper/SystemExceptionMapper.java" afterDir="false" />
+    <list default="true" id="05d95256-ade9-4d01-a954-1cac06d17cbf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/DaoUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/exception/UserNotCreatedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/exception/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/exception/BusinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/exception/SystemException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/exception/SystemException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/config/JerseyConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/api/DoctorApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/api/DoctorApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/api/PatientApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/api/PatientApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/constant/DoctorConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/constant/DoctorConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/dao/DoctorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/dao/DoctorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/dao/PatientDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/dao/PatientDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/delegate/DoctorDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/delegate/DoctorDelegate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/delegate/PatientDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/delegate/PatientDelegate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/exception/BusinessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/exception/BusinessException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/exception/SystemException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/exception/SystemException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/helper/DoctorHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/helper/DoctorHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/helper/PatientHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/global/coda/hms/helper/PatientHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/JerseyConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/api/PatientApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/api/PatientApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/constant/DoctorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/constant/DoctorConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/constant/PatientConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/constant/PatientConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/DoctorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/DoctorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/PatientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/dao/PatientDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/delegate/DoctorDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/delegate/DoctorDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/DoctorHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/DoctorHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/PatientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hms/helper/PatientHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +121,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="TestNG" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG" value="" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -301,7 +328,9 @@
       <workItem from="1578813612300" duration="34265000" />
       <workItem from="1578887031165" duration="17415000" />
       <workItem from="1578935812037" duration="2515000" />
-      <workItem from="1578974358611" duration="1465000" />
+      <workItem from="1578974358611" duration="13987000" />
+      <workItem from="1579159635389" duration="10849000" />
+      <workItem from="1579244278289" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="Loggers at entry and exit">
       <created>1578938248683</created>
@@ -310,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578938248683</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Exception Mapper">
+      <created>1578975856960</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578975856960</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +354,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Loggers at entry and exit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Loggers at entry and exit" />
+    <MESSAGE value="Exception Mapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exception Mapper" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="0" key="#PatientDaoTest" timestamp="1578744910924">
@@ -341,10 +378,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="379" y="145" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1578820954734" />
-    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1578899004395">
+    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1579169894313">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1578899004395" />
+    <state x="446" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1579169894313" />
     <state x="310" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578826349306">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -357,46 +394,50 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="381" y="170" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1578672581197" />
-    <state x="199" y="0" key="CommitChangelistDialog2" timestamp="1578974530636">
+    <state x="199" y="0" key="CommitChangelistDialog2" timestamp="1578975854897">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="199" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578974530636" />
+    <state x="199" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578975854897" />
+    <state x="93" y="93" width="1095" height="495" key="DiffContextDialog" timestamp="1579170312406">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1579170312406" />
     <state x="421" y="43" key="FileChooserDialogImpl" timestamp="1578839594956">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="43" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1578839594956" />
-    <state width="1237" height="162" key="GridCell.Tab.0.bottom" timestamp="1578975587820">
+    <state width="1237" height="162" key="GridCell.Tab.0.bottom" timestamp="1578995435625">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1578748603748">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1280.680@0.0.1280.680" timestamp="1578748603748" />
-    <state width="1237" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578975587820" />
-    <state width="1237" height="162" key="GridCell.Tab.0.center" timestamp="1578975587819">
+    <state width="1237" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578995435625" />
+    <state width="1237" height="162" key="GridCell.Tab.0.center" timestamp="1578995435625">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1578748603747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.center.inPresentationMode/0.0.1280.680@0.0.1280.680" timestamp="1578748603747" />
-    <state width="1237" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578975587819" />
-    <state width="1237" height="162" key="GridCell.Tab.0.left" timestamp="1578975587818">
+    <state width="1237" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578995435625" />
+    <state width="1237" height="162" key="GridCell.Tab.0.left" timestamp="1578995435624">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1578748603747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.left.inPresentationMode/0.0.1280.680@0.0.1280.680" timestamp="1578748603747" />
-    <state width="1237" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578975587818" />
-    <state width="1237" height="162" key="GridCell.Tab.0.right" timestamp="1578975587819">
+    <state width="1237" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578995435624" />
+    <state width="1237" height="162" key="GridCell.Tab.0.right" timestamp="1578995435625">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1578748603747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="162" key="GridCell.Tab.0.right.inPresentationMode/0.0.1280.680@0.0.1280.680" timestamp="1578748603747" />
-    <state width="1237" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578975587819" />
+    <state width="1237" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578995435625" />
     <state x="221" y="77" key="IDE.errors.dialog" timestamp="1578672498311">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -409,10 +450,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1578813583087" />
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578938265138">
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1578975863424">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578938265138" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1578975863424" />
     <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1578974366006">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -421,14 +462,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="412" y="18" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.680@0.0.1280.680" timestamp="1578733293698" />
+    <state x="575" y="169" key="extract.method.dialog" timestamp="1579170621373">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="575" y="169" key="extract.method.dialog/0.0.1280.680@0.0.1280.680" timestamp="1579170621373" />
     <state x="428" y="242" key="git4idea.ui.GitStashDialog" timestamp="1578935836085">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="428" y="242" key="git4idea.ui.GitStashDialog/0.0.1280.680@0.0.1280.680" timestamp="1578935836085" />
-    <state x="91" y="0" key="new project wizard" timestamp="1578839586569">
+    <state x="91" y="0" key="new project wizard" timestamp="1578994831774">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1578839586569" />
+    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1578994831774" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HospitalManagement$Plugin.ic" NAME="Plugin Coverage Results" MODIFIED="1578717631083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

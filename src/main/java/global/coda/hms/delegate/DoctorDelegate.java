@@ -28,11 +28,10 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      * @throws BusinessException the business exception
      */
-    public Doctor createDoctorDelegate(Doctor doctor) throws SystemException, BusinessException {
+    public static Doctor createDoctorDelegate(Doctor doctor) throws SystemException, BusinessException {
         LOGGER.traceEntry(doctor.toString());
-        DoctorHelper doctorHelper = new DoctorHelper();
 
-        doctor = doctorHelper.createDoctorHelper(doctor);
+        doctor = DoctorHelper.createDoctor(doctor);
         LOGGER.traceExit(doctor);
         return doctor;
     }
@@ -46,11 +45,10 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      * @throws BusinessException the business exception
      */
-    public Doctor readDoctorDelegate(int id) throws SystemException, BusinessException {
+    public static Doctor readDoctorDelegate(int id) throws SystemException, BusinessException {
         LOGGER.traceEntry(String.valueOf(id));
-        DoctorHelper doctorHelper = new DoctorHelper();
         Doctor doctor;
-        doctor = doctorHelper.readDoctorHelper(id);
+        doctor = DoctorHelper.readDoctor(id);
         LOGGER.traceExit(doctor);
         return doctor;
     }
@@ -63,11 +61,10 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      * @throws BusinessException the business exception
      */
-    public List<Doctor> readAllDoctorDelegate() throws SystemException, BusinessException {
+    public static List<Doctor> readAllDoctorDelegate() throws SystemException, BusinessException {
         LOGGER.traceEntry();
-        DoctorHelper doctorHelper = new DoctorHelper();
         List<Doctor> doctorlist;
-        doctorlist = doctorHelper.readAllDoctorHelper();
+        doctorlist = DoctorHelper.readAllDoctor();
         LOGGER.traceEntry();
         return doctorlist;
     }
@@ -81,10 +78,9 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      * @throws BusinessException the business exception
      */
-    public boolean updateDoctorDelegate(Doctor doctor) throws SystemException, BusinessException {
+    public static boolean updateDoctorDelegate(Doctor doctor) throws SystemException, BusinessException {
         LOGGER.traceEntry(doctor.toString());
-        DoctorHelper doctorHelper = new DoctorHelper();
-        doctorHelper.updateDoctorHelper(doctor);
+        DoctorHelper.updateDoctor(doctor);
         LOGGER.traceExit("true");
         return true;
     }
@@ -97,10 +93,9 @@ public class DoctorDelegate {
      * @throws SystemException   the system exception
      * @throws BusinessException the business exception
      */
-    public boolean deleteDoctorDelegate(int id) throws SystemException, BusinessException {
+    public static boolean deleteDoctorDelegate(int id) throws SystemException, BusinessException {
         LOGGER.traceEntry(String.valueOf(id));
-        DoctorHelper doctorHelper = new DoctorHelper();
-        doctorHelper.deleteDoctorHelper(id);
+        DoctorHelper.deleteDoctor(id);
         LOGGER.traceExit("true");
         return true;
     }
@@ -115,8 +110,7 @@ public class DoctorDelegate {
      */
     public boolean PateintDoctorAssignDelegate(DoctorPatientAssign newData) throws SystemException, BusinessException {
         LOGGER.traceEntry(newData.toString());
-        DoctorHelper doctorHelper = new DoctorHelper();
-        doctorHelper.PateintDoctorAssignHelper(newData);
+        DoctorHelper.PateintDoctorAssign(newData);
         LOGGER.traceExit("true");
         return true;
     }
@@ -131,9 +125,8 @@ public class DoctorDelegate {
      */
     public DoctorPatientMapper getPatientsDelegate(int doctorId) throws BusinessException, SystemException {
         LOGGER.traceEntry(String.valueOf(doctorId));
-        DoctorHelper doctorHelper = new DoctorHelper();
         LOGGER.traceExit();
-        return doctorHelper.getPatientsHelper(doctorId);
+        return DoctorHelper.getPatient(doctorId);
     }
 
     /**
@@ -145,10 +138,9 @@ public class DoctorDelegate {
      */
     public List<Doctor> getAllPatientsDelegate() throws BusinessException, SystemException {
         LOGGER.traceEntry();
-        DoctorHelper doctorHelper = new DoctorHelper();
         List<Doctor> doctorList = new ArrayList<>();
         Map<Integer, Doctor> doctorMap;
-        doctorMap = doctorHelper.getAllPatientsHelper();
+        doctorMap = DoctorHelper.getAllPatients();
         for (Map.Entry<Integer, Doctor> entry : doctorMap.entrySet()) {
             doctorList.add(entry.getValue());
         }

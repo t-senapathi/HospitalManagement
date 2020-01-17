@@ -14,6 +14,7 @@ public class PatientConstants {
     public static final String UPDATE_USER = "HM_SQL_007";
     public static final String UPDATE_PATIENT = "HM_SQL_008";
     public static final String CREATE_SUCCESS = "HM_INFO_001";
+    public static final String CREATE_FAILED = "Patient Creation Unsuccessfull";
     public static final String READ_SUCCESS = "HM_INFO_002";
     public static final String READALL_SUCCESS = "HM_INFO_003";
     public static final String UPDATE_SUCCESS = "HM_INFO_004";

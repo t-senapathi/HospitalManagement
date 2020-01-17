@@ -35,10 +35,13 @@ public class PatientApi {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponseEntity<?> createPatientApi(Patient patient) throws SystemException, BusinessException {
-        LOGGER.traceEntry(patient.toString());
+        //FIX : USE ENTRY LOGS
+        LOGGER.entry(patient);
+        //FIX : USE STATIC AND RESEARCH ON IT
         PatientDelegate patientDelegate = new PatientDelegate();
         patient = patientDelegate.createPatientDelegate(patient);
         LOGGER.traceExit(patient);
+        //FIX : PUT THIS BEFORE TRACE EXIT AND THEN RETURN IT
         return new ResponseEntity<>().setData(patient).setStatusCode(HttpStatusConstant.OK);
 
     }

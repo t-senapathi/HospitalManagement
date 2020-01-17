@@ -4,9 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import global.coda.hms.exception.BusinessException;
-import global.coda.hms.exception.DbConstraintViolationException;
-import global.coda.hms.exception.SystemException;
 import global.coda.hms.exception.UserNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ResourceBundle;
 
 import global.coda.hms.model.Patient;
+import org.jetbrains.annotations.NotNull;
 
 import static global.coda.hms.constant.PatientConstants.*;
 
@@ -33,25 +31,21 @@ public class PatientDao {
      *
      * @param patient the patient
      * @return the patient
-     * @throws SQLException      the sql exception
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws Exception the exception
      */
-    public Patient createPatient(Patient patient) throws SQLException, BusinessException, SystemException {
+    public Patient createPatient(Patient patient) throws Exception {
         LOGGER.traceEntry(patient.toString());
         PreparedStatement userStatement, patientStatement;
         DbConnection dbconnection = null;
         Connection connection = null;
 
         try {
-            if (patient.getUsername() == null || patient.getPassword() == null || patient.getFirstName() == null) {
-                throw new DbConstraintViolationException(ERROR_CONSTANT.getString(HM_ERROR_001));
-            }
             dbconnection = new DbConnection();
             connection = dbconnection.getConnection();
             connection.setAutoCommit(false);
             userStatement = connection.prepareStatement(SQL_CONSTANT.getString(CREATE_USER),
                     Statement.RETURN_GENERATED_KEYS);
+            // FIX : USE FUNCTIONS TO SET OR GET DATA
             userStatement.setString(ONE, patient.getUsername());
             userStatement.setString(TWO, patient.getPassword());
             userStatement.setInt(THREE, 1);
@@ -64,7 +58,7 @@ public class PatientDao {
                 int userId = 0;
                 if (keySetUser.next()) {
                     userId = keySetUser.getInt(ONE);
-                    LOGGER.info(userId);
+                    LOGGER.info("The generated user id is:" + userId);
                 }
                 patientStatement = connection.prepareStatement(
                         SQL_CONSTANT.getString(CREATE_PATIENT));
@@ -80,30 +74,26 @@ public class PatientDao {
                     connection.commit();
                     patient.setPkUserId(userId);
                     LOGGER.info(INFO_CONSTANT.getString(CREATE_SUCCESS));
-                    LOGGER.traceExit(patient);
-                    return patient;
                 } else {
-                    throw new SQLException();
+                    connection.rollback();
                 }
             } else {
-                throw new SQLException();
+                connection.rollback();
             }
 
-        } catch (DbConstraintViolationException e) {
-            throw new BusinessException(e);
         } catch (SQLIntegrityConstraintViolationException e) {
             connection.rollback();
-            throw new BusinessException(ERROR_CONSTANT.getString(HM_ERROR_002), e);
+            throw new SQLIntegrityConstraintViolationException(ERROR_CONSTANT.getString(HM_ERROR_002), e);
         } catch (SQLException e) {
             connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            throw new SQLException(e);
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
         }
+        LOGGER.traceExit(patient);
+        return patient;
     }
 
     /**
@@ -111,11 +101,10 @@ public class PatientDao {
      *
      * @param id the id
      * @return true, if successful
-     * @throws SystemException   the system exception
-     * @throws BusinessException the business exception
-     * @throws SQLException      the sql exception
+     * @throws UserNotFoundException the user not found exception
+     * @throws Exception             the exception
      */
-    public boolean deletePatient(int id) throws SystemException, BusinessException, SQLException {
+    public boolean deletePatient(int id) throws UserNotFoundException, Exception {
         LOGGER.traceEntry(String.valueOf(id));
         DbConnection dbconnection = null;
         Connection connection = null;
@@ -138,21 +127,15 @@ public class PatientDao {
                     LOGGER.traceExit("true");
                     return true;
                 } else {
+                    connection.rollback();
                     throw new UserNotFoundException();
                 }
             } else {
+                connection.rollback();
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
 
-        } catch (UserNotFoundException e) {
-            connection.rollback();
-            throw new BusinessException(e);
-        } catch (SQLException e) {
-            connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
-        } finally {
+        }  finally {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
@@ -163,10 +146,9 @@ public class PatientDao {
      * Read all patient.
      *
      * @return the list
-     * @throws SystemException   the system exception
-     * @throws BusinessException the business exception
+     * @throws Exception the exception
      */
-    public List<Patient> readAllPatient() throws SystemException, BusinessException {
+    public List<Patient> readAllPatient() throws Exception {
         LOGGER.traceEntry();
         DbConnection dbconnection = null;
         Connection connection = null;
@@ -180,37 +162,14 @@ public class PatientDao {
             userStatement = connection
                     .prepareStatement(SQL_CONSTANT.getString(READ_ALL_PATIENT));
             resultSet = userStatement.executeQuery();
-            int userCount = 0;
             while (resultSet.next()) {
-                ++userCount;
-                patient = new Patient();
-                patient.setUsername(resultSet.getString(USERNAME));
-                patient.setPassword(resultSet.getString(PASSWORD));
-                patient.setPkUserId(resultSet.getInt(USER_ID));
-                patient.setFkRoleId(resultSet.getInt(ROLE));
-                patient.setFirstName(resultSet.getString(FIRST_NAME));
-                patient.setLastName(resultSet.getString(LAST_NAME));
-                patient.setAge(resultSet.getInt(AGE));
-                patient.setPkPatientId(resultSet.getInt(PATIENT_ID));
-                patient.setPatientHeight(resultSet.getInt(PATIENT_HEIGHT));
-                patient.setPatientWeight(resultSet.getInt(PATIENT_WEIGHT));
-                patient.setDoorNo(resultSet.getString(DOOR_NO));
-                patient.setStreet(resultSet.getString(STREET));
-                patient.setCity(resultSet.getString(CITY));
-                patient.setBloodGroup(resultSet.getString(BLOOD_GROUP));
+                patient = createPatientObject(resultSet);
                 patientlist.add(patient);
             }
-            if (userCount != 0) {
-                LOGGER.info(INFO_CONSTANT.getString(READALL_SUCCESS));
-                LOGGER.traceExit(patientlist);
-                return patientlist;
-            } else {
-                throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_004));
-            }
-        } catch (UserNotFoundException e) {
-            throw new BusinessException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            LOGGER.info(INFO_CONSTANT.getString(READALL_SUCCESS));
+            LOGGER.traceExit(patientlist);
+            return patientlist;
+
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
@@ -219,20 +178,46 @@ public class PatientDao {
     }
 
     /**
+     *
+     * @param resultSet contains all fetched rows
+     * @return patient object
+     * @throws SQLException the sql Exception
+     */
+    @NotNull
+    private Patient createPatientObject(ResultSet resultSet) throws SQLException {
+        Patient patient;
+        patient = new Patient();
+        patient.setUsername(resultSet.getString(USERNAME));
+        patient.setPassword(resultSet.getString(PASSWORD));
+        patient.setPkUserId(resultSet.getInt(USER_ID));
+        patient.setFkRoleId(resultSet.getInt(ROLE));
+        patient.setFirstName(resultSet.getString(FIRST_NAME));
+        patient.setLastName(resultSet.getString(LAST_NAME));
+        patient.setAge(resultSet.getInt(AGE));
+        patient.setPkPatientId(resultSet.getInt(PATIENT_ID));
+        patient.setPatientHeight(resultSet.getInt(PATIENT_HEIGHT));
+        patient.setPatientWeight(resultSet.getInt(PATIENT_WEIGHT));
+        patient.setDoorNo(resultSet.getString(DOOR_NO));
+        patient.setStreet(resultSet.getString(STREET));
+        patient.setCity(resultSet.getString(CITY));
+        patient.setBloodGroup(resultSet.getString(BLOOD_GROUP));
+        return patient;
+    }
+
+    /**
      * Read patient.
      *
      * @param id the id
      * @return the patient
-     * @throws BusinessException the SQL exception
-     * @throws SystemException   the system exception
+     * @throws Exception the exception
      */
-    public Patient readPatient(int id) throws BusinessException, SystemException {
+    public Patient readPatient(int id) throws Exception {
         LOGGER.traceEntry(String.valueOf(id));
         DbConnection dbconnection = null;
         Connection connection = null;
         ResultSet resultSet;
         PreparedStatement userStatement;
-        Patient patient;
+        Patient patient = null;
         try {
             dbconnection = new DbConnection();
             connection = dbconnection.getConnection();
@@ -240,40 +225,17 @@ public class PatientDao {
             userStatement.setInt(ONE, id);
             resultSet = userStatement.executeQuery();
             if (resultSet.next()) {
-                patient = new Patient();
-                patient.setUsername(resultSet.getString(USERNAME));
-                patient.setPassword(resultSet.getString(PASSWORD));
-                patient.setPkUserId(resultSet.getInt(USER_ID));
-                patient.setFkRoleId(resultSet.getInt(ROLE));
-                patient.setFirstName(resultSet.getString(FIRST_NAME));
-                patient.setLastName(resultSet.getString(LAST_NAME));
-                patient.setAge(resultSet.getInt(AGE));
-                patient.setPkPatientId(resultSet.getInt(PATIENT_ID));
-                patient.setPatientHeight(resultSet.getInt(PATIENT_HEIGHT));
-                patient.setPatientWeight(resultSet.getInt(PATIENT_WEIGHT));
-                patient.setDoorNo(resultSet.getString(DOOR_NO));
-                patient.setStreet(resultSet.getString(STREET));
-                patient.setCity(resultSet.getString(CITY));
-                patient.setBloodGroup(resultSet.getString(BLOOD_GROUP));
+                patient = createPatientObject(resultSet);
                 LOGGER.info(INFO_CONSTANT.getString(READ_SUCCESS));
-                LOGGER.traceExit(patient);
-                return patient;
-            } else {
-                throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
-
-        } catch (UserNotFoundException e) {
-            //throw new BusinessException("ID not found");
-            throw new BusinessException(e);
-
-        } catch (SQLException e) {
-            throw new SystemException(e);
 
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
         }
+        LOGGER.traceExit(patient);
+        return patient;
     }
 
 
@@ -282,19 +244,15 @@ public class PatientDao {
      *
      * @param newData the newData
      * @return true, if successful
-     * @throws SystemException   the system exception
-     * @throws SQLException      the sql exception
-     * @throws BusinessException the business exception
+     * @throws UserNotFoundException the user not found exception
+     * @throws Exception             the exception
      */
-    public boolean updatePatient(Patient newData) throws SystemException, SQLException, BusinessException {
+    public boolean updatePatient(Patient newData) throws UserNotFoundException, Exception {
         LOGGER.traceEntry();
         DbConnection dbConnection = null;
         Connection connection = null;
         PreparedStatement userStatement, patientStatement;
         try {
-            if (newData.getPassword() == null) {
-                throw new DbConstraintViolationException(ERROR_CONSTANT.getString(HM_ERROR_005));
-            }
             dbConnection = new DbConnection();
             connection = dbConnection.getConnection();
             connection.setAutoCommit(false);
@@ -321,13 +279,9 @@ public class PatientDao {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
 
-        } catch (UserNotFoundException | DbConstraintViolationException e) {
-            throw new BusinessException(e);
         } catch (SQLException e) {
             connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            throw e;
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();

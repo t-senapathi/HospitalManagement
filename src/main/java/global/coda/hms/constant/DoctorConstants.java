@@ -12,7 +12,7 @@ public class DoctorConstants {
     public static final String READ_ALL_DOCTOR = "HM_SQL_011";
     public static final String READ_DOCTOR = "HM_SQL_010";
     public static final String UPDATE_USER = "HM_SQL_007";
-    public static final String UPDATE_DOCTOR = "HM_SQL_0012";
+    public static final String UPDATE_DOCTOR = "HM_SQL_012";
     public static final String PATIENT_DOCTOR_ASSIGN = "HM_SQL_014";
     public static final String GET_PATIENT = "HM_SQL_015";
     public static final String GET_ALL_PATIENT = "HM_SQL_016";
@@ -22,6 +22,7 @@ public class DoctorConstants {
     public static final String READALL_SUCCESS = "HM_INFO_003";
     public static final String UPDATE_SUCCESS = "HM_INFO_004";
     public static final String DELETE_SUCCESS = "HM_INFO_005";
+    public static final String CREATE_FAILED = "Doctor Creation Unsuccessfull";
     public static final int ONE = 1;
     public static final int TWO = 2;
     public static final int THREE = 3;

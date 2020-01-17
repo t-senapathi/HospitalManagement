@@ -11,6 +11,7 @@ import global.coda.hms.model.DoctorPatientMapper;
 import global.coda.hms.model.Patient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import static global.coda.hms.constant.DoctorConstants.*;
 
@@ -29,20 +30,15 @@ public class DoctorDao {
      *
      * @param doctor the doctor
      * @return the doctor
-     * @throws SQLException      the sql exception
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws Exception the exception
      */
-    public Doctor createDoctor(Doctor doctor) throws SQLException, BusinessException, SystemException {
+    public Doctor createDoctor(Doctor doctor) throws Exception {
         LOGGER.traceEntry(doctor.toString());
         PreparedStatement userStatement, doctorStatement;
         DbConnection dbconnection = null;
         Connection connection = null;
 
         try {
-            if (doctor.getUsername() == null || doctor.getPassword() == null || doctor.getFirstName() == null) {
-                throw new DbConstraintViolationException(ERROR_CONSTANT.getString(HM_ERROR_001));
-            }
             dbconnection = new DbConnection();
             connection = dbconnection.getConnection();
             connection.setAutoCommit(false);
@@ -71,30 +67,23 @@ public class DoctorDao {
                     connection.commit();
                     doctor.setPkUserId(userId);
                     LOGGER.info(INFO_CONSTANT.getString(CREATE_SUCCESS));
-                    LOGGER.traceExit(doctor);
-                    return doctor;
                 } else {
-                    throw new SQLException();
+                    connection.rollback();
                 }
             } else {
-                throw new SQLException();
+                connection.rollback();
             }
 
-        } catch (DbConstraintViolationException e) {
-            throw new BusinessException(e);
-        } catch (SQLIntegrityConstraintViolationException e) {
-            connection.rollback();
-            throw new BusinessException(ERROR_CONSTANT.getString(HM_ERROR_002), e);
         } catch (SQLException e) {
             connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            throw new SQLException(e);
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
             }
         }
+        LOGGER.traceExit(doctor);
+        return doctor;
     }
 
     /**
@@ -102,16 +91,15 @@ public class DoctorDao {
      *
      * @param id the id
      * @return the doctor
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws Exception the exception
      */
-    public Doctor readDoctor(int id) throws BusinessException, SystemException {
+    public Doctor readDoctor(int id) throws Exception {
         LOGGER.traceEntry(String.valueOf(id));
         DbConnection dbconnection = null;
         Connection connection = null;
         ResultSet resultSet;
         PreparedStatement userStatement;
-        Doctor doctor;
+        Doctor doctor = null;
         try {
             dbconnection = new DbConnection();
             connection = dbconnection.getConnection();
@@ -119,28 +107,11 @@ public class DoctorDao {
             userStatement.setInt(ONE, id);
             resultSet = userStatement.executeQuery();
             if (resultSet.next()) {
-                doctor = new Doctor();
-                doctor.setUsername(resultSet.getString(USERNAME));
-                doctor.setPassword(resultSet.getString(PASSWORD));
-                doctor.setPkUserId(resultSet.getInt(USER_ID));
-                doctor.setFkRoleId(resultSet.getInt(ROLE));
-                doctor.setFirstName(resultSet.getString(FIRST_NAME));
-                doctor.setLastName(resultSet.getString(LAST_NAME));
-                doctor.setAge(resultSet.getInt(AGE));
-                doctor.setPkDoctorId(resultSet.getInt(DOCTOR_ID));
-                doctor.setSpecialisation(resultSet.getString(SPECIALISATION));
-                doctor.setExperience(resultSet.getInt(EXPERIENCE));
+                doctor = createDoctorObject(resultSet);
                 LOGGER.info(INFO_CONSTANT.getString(READ_SUCCESS));
-                LOGGER.traceExit(doctor);
-                return doctor;
-            } else {
-                throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
 
-        } catch (UserNotFoundException e) {
-            throw new BusinessException(e);
-
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new SystemException(e);
 
         } finally {
@@ -148,16 +119,17 @@ public class DoctorDao {
                 dbconnection.closeConnection();
             }
         }
+        LOGGER.traceExit(doctor);
+        return doctor;
     }
 
     /**
      * Read all doctor list.
      *
      * @return the list
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws Exception the exception
      */
-    public List<Doctor> readAllDoctor() throws BusinessException, SystemException {
+    public List<Doctor> readAllDoctor() throws Exception {
         DbConnection dbconnection = null;
         Connection connection = null;
         ResultSet resultSet;
@@ -170,31 +142,14 @@ public class DoctorDao {
             connection.setAutoCommit(false);
             userStatement = connection.prepareStatement(SQL_CONSTANT.getString(READ_ALL_DOCTOR));
             resultSet = userStatement.executeQuery();
-            int userCount = 0;
             while (resultSet.next()) {
-                ++userCount;
-                doctor = new Doctor();
-                doctor.setUsername(resultSet.getString(USERNAME));
-                doctor.setPassword(resultSet.getString(PASSWORD));
-                doctor.setPkUserId(resultSet.getInt(USER_ID));
-                doctor.setFkRoleId(resultSet.getInt(ROLE));
-                doctor.setFirstName(resultSet.getString(FIRST_NAME));
-                doctor.setLastName(resultSet.getString(LAST_NAME));
-                doctor.setAge(resultSet.getInt(AGE));
-                doctor.setPkDoctorId(resultSet.getInt(DOCTOR_ID));
-                doctor.setSpecialisation(resultSet.getString(SPECIALISATION));
-                doctor.setExperience(resultSet.getInt(EXPERIENCE));
+                doctor = createDoctorObject(resultSet);
                 doctorlist.add(doctor);
             }
-            if (userCount != 0) {
-                LOGGER.info(INFO_CONSTANT.getString(READALL_SUCCESS));
-                LOGGER.traceExit(doctorlist);
-                return doctorlist;
-            } else {
-                throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_004));
-            }
-        } catch (UserNotFoundException e) {
-            throw new BusinessException(e);
+            LOGGER.info(INFO_CONSTANT.getString(READALL_SUCCESS));
+            LOGGER.traceExit(doctorlist);
+            return doctorlist;
+
         } catch (Exception e) {
             throw new SystemException(e);
         } finally {
@@ -204,25 +159,43 @@ public class DoctorDao {
         }
     }
 
+    /**
+     * @param resultSet contains all fetched rows
+     * @return doctor object
+     * @throws SQLException the SQL exception
+     */
+    @NotNull
+    private Doctor createDoctorObject(ResultSet resultSet) throws SQLException {
+        Doctor doctor;
+        doctor = new Doctor();
+        doctor.setUsername(resultSet.getString(USERNAME));
+        doctor.setPassword(resultSet.getString(PASSWORD));
+        doctor.setPkUserId(resultSet.getInt(USER_ID));
+        doctor.setFkRoleId(resultSet.getInt(ROLE));
+        doctor.setFirstName(resultSet.getString(FIRST_NAME));
+        doctor.setLastName(resultSet.getString(LAST_NAME));
+        doctor.setAge(resultSet.getInt(AGE));
+        doctor.setPkDoctorId(resultSet.getInt(DOCTOR_ID));
+        doctor.setSpecialisation(resultSet.getString(SPECIALISATION));
+        doctor.setExperience(resultSet.getInt(EXPERIENCE));
+        return doctor;
+    }
+
 
     /**
      * Update doctor boolean.
      *
      * @param newData the new data
      * @return the boolean
-     * @throws SQLException      the sql exception
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws UserNotFoundException the user not found exception
+     * @throws Exception             the exception
      */
-    public boolean updateDoctor(Doctor newData) throws SQLException, BusinessException, SystemException {
+    public boolean updateDoctor(Doctor newData) throws UserNotFoundException, Exception {
         LOGGER.traceEntry(newData.toString());
         DbConnection dbConnection = null;
         Connection connection = null;
         PreparedStatement userStatement, doctorStatement;
         try {
-            if (newData.getPassword() == null) {
-                throw new DbConstraintViolationException(ERROR_CONSTANT.getString(HM_ERROR_005));
-            }
             dbConnection = new DbConnection();
             connection = dbConnection.getConnection();
             connection.setAutoCommit(false);
@@ -244,19 +217,17 @@ public class DoctorDao {
                     LOGGER.traceExit("true");
                     return true;
                 } else {
+                    connection.rollback();
                     throw new UserNotFoundException();
                 }
             } else {
+                connection.rollback();
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
 
-        } catch (UserNotFoundException | DbConstraintViolationException e) {
-            throw new BusinessException(e);
         } catch (SQLException e) {
             connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            throw e;
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
@@ -270,11 +241,10 @@ public class DoctorDao {
      *
      * @param id the id
      * @return the boolean
-     * @throws SQLException      the sql exception
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws UserNotFoundException the user not found exception
+     * @throws Exception             the exception
      */
-    public boolean deleteDoctor(int id) throws SQLException, BusinessException, SystemException {
+    public boolean deleteDoctor(int id) throws UserNotFoundException, Exception {
         LOGGER.traceEntry(String.valueOf(id));
         DbConnection dbconnection = null;
         Connection connection = null;
@@ -297,20 +267,17 @@ public class DoctorDao {
                     LOGGER.traceExit("true");
                     return true;
                 } else {
-                    throw new UserNotFoundException();
+                    connection.rollback();
+                    throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
                 }
             } else {
+                connection.rollback();
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
 
-        } catch (UserNotFoundException e) {
-            connection.rollback();
-            throw new BusinessException(e);
         } catch (SQLException e) {
             connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            throw e;
         } finally {
             if (connection != null) {
                 dbconnection.closeConnection();
@@ -323,19 +290,15 @@ public class DoctorDao {
      *
      * @param newData the new data
      * @return the boolean
-     * @throws SQLException      the sql exception
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws UserNotFoundException the user not found exception
+     * @throws Exception             the exception
      */
-    public boolean PatientDoctorAssign(DoctorPatientAssign newData) throws SQLException, BusinessException, SystemException {
+    public boolean PatientDoctorAssign(DoctorPatientAssign newData) throws UserNotFoundException, Exception {
         LOGGER.traceEntry(newData.toString());
         DbConnection dbConnection = null;
         Connection connection = null;
         PreparedStatement assignStatement;
         try {
-            if (newData.getDoctorId() == 0 || newData.getPatientId() == 0) {
-                throw new DbConstraintViolationException(ERROR_CONSTANT.getString(HM_ERROR_006));
-            }
             dbConnection = new DbConnection();
             connection = dbConnection.getConnection();
             connection.setAutoCommit(false);
@@ -355,13 +318,9 @@ public class DoctorDao {
                 throw new UserNotFoundException(ERROR_CONSTANT.getString(HM_ERROR_003));
             }
 
-        } catch (UserNotFoundException | DbConstraintViolationException e) {
-            throw new BusinessException(e);
         } catch (SQLException e) {
             connection.rollback();
-            throw new SystemException(e);
-        } catch (Exception e) {
-            throw new SystemException(e);
+            throw e;
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
@@ -374,10 +333,10 @@ public class DoctorDao {
      *
      * @param doctorId the doctor id
      * @return the patients
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws NoRecordFoundException the no record found exception
+     * @throws Exception              the exception
      */
-    public DoctorPatientMapper getPatients(int doctorId) throws BusinessException, SystemException {
+    public DoctorPatientMapper getPatients(int doctorId) throws NoRecordFoundException, Exception {
         LOGGER.traceEntry(String.valueOf(doctorId));
         DoctorPatientMapper doctorPatientMapper = new DoctorPatientMapper();
         DbConnection dbConnection = null;
@@ -385,7 +344,6 @@ public class DoctorDao {
         Connection connection = null;
         PatientDao patientDao = new PatientDao();
         try {
-            Doctor doctor = readDoctor(doctorId);
             dbConnection = new DbConnection();
             connection = dbConnection.getConnection();
             preparedStatement = connection.prepareStatement(SQL_CONSTANT.getString(GET_PATIENT),
@@ -412,10 +370,6 @@ public class DoctorDao {
             doctorPatientMapper.setPatients(patients);
             LOGGER.traceExit(doctorPatientMapper);
             return doctorPatientMapper;
-        } catch (NoRecordFoundException e) {
-            throw new BusinessException(e);
-        } catch (SQLException e) {
-            throw new SystemException(e);
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
@@ -427,10 +381,9 @@ public class DoctorDao {
      * Gets all patients.
      *
      * @return the all patients
-     * @throws BusinessException the business exception
-     * @throws SystemException   the system exception
+     * @throws Exception the exception
      */
-    public Map<Integer, Doctor> getAllPatients() throws BusinessException, SystemException {
+    public Map<Integer, Doctor> getAllPatients() throws Exception {
         LOGGER.traceEntry();
         DbConnection dbConnection = null;
         PreparedStatement preparedStatement;
@@ -470,8 +423,6 @@ public class DoctorDao {
             }
             LOGGER.traceExit(doctorMap);
             return doctorMap;
-        } catch (SQLException e) {
-            throw new SystemException(e);
         } finally {
             if (connection != null) {
                 dbConnection.closeConnection();
